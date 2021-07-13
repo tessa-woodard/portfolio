@@ -1,19 +1,27 @@
-import * as React from "react"
-import PropTypes from "prop-types"
-// import "bootstrap/dist/css/bootstrap.min.css"
+import React, { useState } from "react"
 
-import "./layout.css"
+import "bootstrap/dist/css/bootstrap.min.css"
 
+import Header from './Globals/Header'
+import Sidebar from './Globals/Sidebar'
 
-const Layout = ({ children }) => (
-  <>
+import './layout.css'
 
-    {children}
-  </>
-)
+const Layout = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false)
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen)
+  }
+
+  return (
+    <>
+      <Header toggleSidebar={toggleSidebar} />
+      <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
+      {children}
+      {/* <Footer /> */}
+    </>
+  )
 }
 
 export default Layout

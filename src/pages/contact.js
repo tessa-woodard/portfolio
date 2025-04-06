@@ -1,15 +1,15 @@
 import * as React from "react"
 import Layout from "../components/layout"
-import Hero from "../components/Hero"
+import Contact from "../components/Contact"
 
-const IndexPage = () => {
+const ContactPage = () => {
   return (
     <Layout>
       <main>
-        <Hero />
+        <Contact />
       </main>
     </Layout>
   )
 }
 
-export default IndexPage
+export default ContactPage 

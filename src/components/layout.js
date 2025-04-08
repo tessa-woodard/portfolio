@@ -5,15 +5,18 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import * as React from "react"
+import React from "react"
 import { Link } from "gatsby"
 import "./layout.css"
 import ParallaxGrid from "./ParallaxGrid"
 import MoodButton from "./MoodButton"
+import { useMood } from "../context/MoodContext"
 
 const Layout = ({ children }) => {
+  const { currentMood, setCurrentMood } = useMood();
+
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className="min-h-screen flex flex-col" data-mood={currentMood}>
       <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/80 backdrop-blur">
         <div className="sm:px-8">
           <div className="mx-auto max-w-7xl lg:px-8">
@@ -25,34 +28,36 @@ const Layout = ({ children }) => {
                       @tessawoodard
                     </Link>
                   </div>
-                  <div className="flex space-x-4">
-                    <a
-                      href="https://github.com/tessa-woodard"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-lg text-zinc-700 hover:text-zinc-900 transition-colors duration-300 no-underline"
+                  <nav className="flex items-center space-x-8">
+                    <Link
+                      to="/experience"
+                      className="text-lg font-medium hover:text-gray-900 transition-colors duration-300"
+                      style={{ color: 'var(--text-color)' }}
                     >
-                      Projects
-                    </a>
+                      Experience
+                    </Link>
                     <Link
                       to="/contact"
-                      className="text-lg text-zinc-700 hover:text-zinc-900 transition-colors duration-300 no-underline"
+                      className="text-lg font-medium hover:text-gray-900 transition-colors duration-300"
+                      style={{ color: 'var(--text-color)' }}
                     >
                       Contact
                     </Link>
-                  </div>
+                  </nav>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </header>
-      <main className="flex-1 relative overflow-hidden">
-        <ParallaxGrid />
-        <div className="relative z-10 pb-8">
+
+      <main className="flex-1 relative">
+        <div className="bg-grid" />
+        <div className="relative z-10 pb-6">
           {children}
         </div>
       </main>
+
       <footer className="border-t border-zinc-200 py-6 relative z-50 bg-white/80 backdrop-blur">
         <div className="sm:px-8">
           <div className="mx-auto max-w-7xl lg:px-8">

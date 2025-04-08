@@ -23,15 +23,12 @@
       linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
     background-size: var(--grid-size) var(--grid-size);
     opacity: var(--grid-opacity);
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 0;
-    transform-origin: center;
-    will-change: transform;
-    transition: transform 0.1s ease-out;
   }
 
   .bg-grid::before {
@@ -96,14 +93,18 @@
 }
 
 [data-mood="creative"] {
+  --primary-color: #FF6B6B;
+  --secondary-color: #4ECDC4;
+  --accent-color: #FFE66D;
+  --background-color: #F7FFF7;
+  --text-color: #9333EA;
+  --hover-color: #FF8E8E;
   --grid-color: rgb(147, 51, 234);
   --grid-opacity: 0.2;
   --bg-color: rgb(249, 249, 249);
-  --text-color: rgb(167, 139, 250);
-  --hover-color: rgb(233, 213, 255);
   --border-color: rgb(228, 228, 231);
   --header-bg: rgba(249, 249, 249, 0.8);
-  --font-family: 'Quicksand', sans-serif;
+  --font-family: 'Inter', sans-serif;
 }
 
 [data-mood="creative"] .gradient-bg {
@@ -116,35 +117,146 @@
   transition: background 0.3s ease;
 }
 
-[data-mood="creative"] .gradient-bg:hover {
+[data-mood="creative"] .resume-button {
+  background: linear-gradient(
+    45deg,
+    rgb(147, 51, 234) 0%,
+    rgb(196, 181, 253) 50%,
+    rgb(233, 213, 255) 100%
+  );
+  transition: all 0.3s ease;
+  border: 2px solid black;
+  color: black !important;
+  box-shadow: 0 4px 6px rgba(147, 51, 234, 0.2);
+}
+
+[data-mood="creative"] .resume-button:hover {
   background: linear-gradient(
     45deg,
     rgb(233, 213, 255) 0%,
     rgb(196, 181, 253) 50%,
     rgb(147, 51, 234) 100%
   );
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(147, 51, 234, 0.3);
+  color: black !important;
+}
+
+/* Default button styles for other moods */
+.resume-button {
+  background-color: var(--text-color);
+  color: black !important;
+  border: 2px solid black;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: var(--hover-color);
+  transform: translateY(-2px);
+  color: black !important;
 }
 
 [data-mood="cozy"] {
   --grid-color: rgb(139, 94, 60);
   --grid-opacity: 0.2;
-  --bg-color: rgb(249, 249, 249);
+  --bg-color: rgb(241, 235, 231);
   --text-color: rgb(168, 116, 82);
   --hover-color: rgb(201, 161, 138);
   --border-color: rgb(228, 228, 231);
-  --header-bg: rgba(249, 249, 249, 0.8);
+  --header-bg: rgb(241, 235, 231);
   --font-family: 'Merriweather', serif;
 }
 
+/* Tech Mood */
 [data-mood="tech"] {
-  --grid-color: rgb(6, 182, 212);
+  --primary-color: #2D3748;
+  --secondary-color: #4A5568;
+  --accent-color: #48BB78;
+  --background-color: #000000;
+  --text-color: #FFFFFF;
+  --hover-color: #4A5568;
+  --grid-color: rgb(255, 255, 255);
   --grid-opacity: 0.2;
-  --bg-color: rgb(249, 249, 249);
-  --text-color: rgb(56, 189, 248);
-  --hover-color: rgb(103, 232, 249);
-  --border-color: rgb(228, 228, 231);
-  --header-bg: rgba(249, 249, 249, 0.8);
+  --bg-color: rgb(0, 0, 0);
+  --border-color: rgb(255, 255, 255);
+  --header-bg: rgba(0, 0, 0, 0.8);
   --font-family: 'Inter', sans-serif;
+}
+
+[data-mood="tech"] p,
+[data-mood="tech"] li,
+[data-mood="tech"] .prose,
+[data-mood="tech"] .prose p,
+[data-mood="tech"] .prose li,
+[data-mood="tech"] .prose strong,
+[data-mood="tech"] .prose a,
+[data-mood="tech"] .prose h2,
+[data-mood="tech"] .prose h3,
+[data-mood="tech"] .text-zinc-600 {
+  color: #FFFFFF !important;
+}
+
+[data-mood="tech"] .prose a:hover {
+  color: #48BB78;
+}
+
+[data-mood="tech"] h1:hover {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 0 0 rgba(255, 255, 255, 1) !important;
+  border-color: #FFFFFF !important;
+}
+
+[data-mood="tech"] .border-4:hover {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 0 0 rgba(255, 255, 255, 1) !important;
+  border-color: #FFFFFF !important;
+}
+
+[data-mood="tech"] .bg-pink-100:hover {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 0 0 rgba(255, 255, 255, 1) !important;
+  border-color: #FFFFFF !important;
+}
+
+[data-mood="tech"] label,
+[data-mood="tech"] button {
+  color: #000000 !important;
+}
+
+[data-mood="tech"] button[type="submit"]:hover {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+}
+
+[data-mood="tech"] .mood-tooltip {
+  color: #000000 !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: #000000 !important;
+  opacity: 1 !important;
+}
+
+[data-mood="tech"] .mood-button:hover .mood-tooltip {
+  color: #4A5568 !important;
+}
+
+[data-mood="tech"] .text-zinc-600 {
+  color: #000000 !important;
+}
+
+[data-mood="tech"] .mood-tooltip p {
+  color: #000000 !important;
+}
+
+[data-mood="tech"] .mood-tooltip button {
+  color: #000000 !important;
+}
+
+[data-mood="tech"] .mood-tooltip button:hover {
+  color: #4A5568 !important;
 }
 
 html {
@@ -242,10 +354,7 @@ input:focus, textarea:focus {
 }
 
 [data-mood] .bg-grid {
-  background-image: 
-    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-  opacity: var(--grid-opacity);
+  /* Remove duplicate grid definition */
 }
 
 [data-mood] .text-zinc-500 svg {
@@ -256,4 +365,67 @@ input:focus, textarea:focus {
 [data-mood] .text-zinc-500:hover svg {
   color: var(--hover-color);
   opacity: 1;
+}
+
+/* Calm Mood */
+[data-mood="calm"] {
+  --primary-color: #4A5568;
+  --secondary-color: #718096;
+  --accent-color: #9AE6B4;
+  --background-color: #F7FAFC;
+  --text-color: #2D3748;
+  --hover-color: #718096;
+  --grid-color: rgb(74, 85, 104);
+  --grid-opacity: 0.15;
+  --bg-color: rgb(247, 250, 252);
+  --border-color: rgb(226, 232, 240);
+  --header-bg: rgba(247, 250, 252, 0.8);
+  --font-family: 'Inter', sans-serif;
+}
+
+[data-mood="tech"] .resume-button {
+  background-color: var(--text-color);
+  color: black !important;
+  border: 2px solid black;
+  transition: all 0.3s ease;
+}
+
+[data-mood="tech"] .resume-button:hover {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 0 0 rgba(255, 255, 255, 1) !important;
+  border-color: #FFFFFF !important;
+  transform: translateY(-2px);
+}
+
+[data-mood="tech"] .resume-button svg {
+  stroke: black;
+}
+
+[data-mood="tech"] .resume-button:hover svg {
+  stroke: white;
+}
+
+[data-mood="creative"] h1:hover {
+  background: linear-gradient(
+    45deg,
+    rgb(233, 213, 255) 0%,
+    rgb(196, 181, 253) 50%,
+    rgb(147, 51, 234) 100%
+  ) !important;
+  color: #000000 !important;
+  box-shadow: 0 8px 0 0 rgba(0, 0, 0, 1) !important;
+  border-color: #000000 !important;
+}
+
+[data-mood="creative"] .border-4:hover {
+  background: linear-gradient(
+    45deg,
+    rgb(233, 213, 255) 0%,
+    rgb(196, 181, 253) 50%,
+    rgb(147, 51, 234) 100%
+  ) !important;
+  color: #000000 !important;
+  box-shadow: 0 8px 0 0 rgba(0, 0, 0, 1) !important;
+  border-color: #000000 !important;
 } 

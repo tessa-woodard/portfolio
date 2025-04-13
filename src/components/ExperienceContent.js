@@ -201,7 +201,7 @@ const ExperienceContent = () => {
               </span>
             </h1>
             <a
-              href="/resume.pdf"
+              href="/Tessa-Woodard-Resume.pdf"
               download
               className={`font-bold w-fit text-lg py-2 px-4 border-2 border-black rounded-xl shadow-black shadow-[0px_4px_0px_0px_rgba(0,0,0,0)] transition-colors duration-300 mb-8 md:mb-0 ${currentMood === 'creative' ? 'gradient-bg' : ''}`}
               style={{ 

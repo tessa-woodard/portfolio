@@ -3,4 +3,5 @@
   publish = "public"
 
 [context.production.environment]
-  NODE_ENV = "production" 
+  NODE_ENV = "production"
+  GO_VERSION = "1.19" 

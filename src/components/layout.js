@@ -14,9 +14,9 @@ import MoodButton from "./MoodButton"
 import { useMood } from "../context/MoodContext"
 
 const Layout = ({ children }) => {
-  const { currentMood, setCurrentMood } = useMood();
+  const { currentMood } = useMood();
   const location = useLocation();
-  const isExperiencePage = location.pathname === '/experience';
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
     <div className="min-h-screen flex flex-col" data-mood={currentMood}>
@@ -31,7 +31,8 @@ const Layout = ({ children }) => {
                       @tessawoodard
                     </Link>
                   </div>
-                  <nav className="flex items-center space-x-8">
+                  {/* Desktop Navigation */}
+                  <div className="hidden sm:flex items-center space-x-8">
                     <Link
                       to="/experience"
                       className="text-lg font-medium hover:text-gray-900 transition-colors duration-300"
@@ -55,7 +56,47 @@ const Layout = ({ children }) => {
                     >
                       Contact
                     </Link>
-                  </nav>
+                  </div>
+                  {/* Mobile Hamburger Menu */}
+                  <div className="sm:hidden relative">
+                    <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 focus:outline-none">
+                      <svg className="w-6 h-6" style={{ stroke: currentMood === 'tech' ? 'white' : 'var(--text-color)' }} fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                      </svg>
+                    </button>
+                    {isMenuOpen && (
+                      <div className={`absolute right-0 mt-2 w-32 z-50 ${currentMood === 'tech' ? 'bg-black' : 'bg-white/80'} shadow-lg rounded-md`}> 
+                        <div className="flex flex-col items-start py-2">
+                          <Link
+                            to="/experience"
+                            className="text-lg font-medium px-3 py-2"
+                            style={{ color: currentMood === 'tech' ? 'white' : 'var(--text-color)' }}
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            Experience
+                          </Link>
+                          <Link
+                            to="https://github.com/tessa-woodard"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-lg font-medium px-3 py-2"
+                            style={{ color: currentMood === 'tech' ? 'white' : 'var(--text-color)' }}
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            Projects
+                          </Link>
+                          <Link
+                            to="/contact"
+                            className="text-lg font-medium px-3 py-2"
+                            style={{ color: currentMood === 'tech' ? 'white' : 'var(--text-color)' }}
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            Contact
+                          </Link>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

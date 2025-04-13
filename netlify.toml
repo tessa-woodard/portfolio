@@ -1,5 +1,5 @@
 [build]
-  command = "gatsby build"
+  command = "npm ci && gatsby build"
   publish = "public"
 
 [context.production.environment]

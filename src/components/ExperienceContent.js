@@ -2,11 +2,6 @@ import React from "react"
 import { motion } from "framer-motion"
 import ExperienceCard from "./ExperienceCard"
 import { useMood } from "../context/MoodContext"
-import DealerOnLogo from "../images/dealeron-logo.png"
-import CrocsLogo from "../images/crocs-logo.png"
-import IndicioLogo from "../images/indicio-logo.png"
-import FlylanceLogo from "../images/flylance-logo.png"
-import DevMountainLogo from "../images/devmountain-logo.png"
 
 const ExperienceContent = () => {
   const { currentMood } = useMood()

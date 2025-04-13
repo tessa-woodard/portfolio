@@ -4,18 +4,18 @@ import { motion } from "framer-motion"
 const ExperienceCard = ({ experience, index }) => {
   const getLogoImage = (company) => {
     switch (company) {
-      case "DealerOn":
-        return "/dealeron-logo.png"
-      case "Crocs":
-        return "/crocs-logo.png"
-      case "Indicio.tech":
-        return "/indicio-logo.png"
-      case "Flylance":
-        return "/flylance-logo.png"
-      case "DevMountain":
-        return "/devmountain-logo.png"
+      case 'DealerOn':
+        return '/static/dealeron-logo.png';
+      case 'Crocs':
+        return '/static/crocs-logo.png';
+      case 'Indicio':
+        return '/static/indicio-logo.png';
+      case 'Flylance':
+        return '/static/flylance-logo.png';
+      case 'DevMountain':
+        return '/static/devmountain-logo.png';
       default:
-        return null
+        return null;
     }
   }
 

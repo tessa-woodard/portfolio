@@ -1,5 +1,6 @@
 import * as React from "react"
 import { useMood } from "../context/MoodContext"
+import { motion } from "framer-motion"
 
 const Hero = () => {
   const { currentMood } = useMood()
@@ -29,9 +30,32 @@ const Hero = () => {
               </h1>
             </div>
             <div className="prose prose-lg max-w-full dark:prose-invert prose-p:font-body prose-ol:font-body prose-ul:font-body prose-headings:font-sans prose-code:text-[.8em] prose-headings:tracking-tight prose-p:text-zinc-900">
-              <p className="text-lg leading-relaxed">I'm a UI/UX Front End Developer with 5 years of experience. I'm currently contracting at DealerOn — but I'm looking for a full-time role where I can grow, collaborate, and finally call a place home (too cheesy? maybe… but it's true). I'm passionate about clean, thoughtful UI/UX design, subtle but delightful animations, and bringing creativity into every build. My happy place is crafting minimalistic websites with just the right amount of fun and flair.</p>
-              <p>Before transitioning into tech, I spent several years in the restaurant industry, where I worked my way into management roles early on. That experience taught me how to lead with empathy, solve problems on the fly, and keep things running smoothly no matter what gets thrown your way. It still shapes how I work today: with intention, curiosity, and a deep appreciation for good teamwork.</p>
-              <p>When I'm not coding, you can find me out on a trail with my dog Frankie, hanging with my super chill one-eyed cat Ginger, or trying to keep my mischievous kitten Chunx out of trouble. I also love photography, cooking up something fun in the kitchen, and getting lost in a good video game. If you're into building cool stuff and want a developer who brings heart, humor, and high standards to the table — let's chat.</p>
+              <div className="rounded-2xl backdrop-blur-sm bg-white/80 p-4">
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="text-lg leading-relaxed mt-0"
+                >
+                  I'm a UI/UX Front End Developer with 5 years of experience. I'm currently contracting at DealerOn — but I'm looking for a full-time role where I can grow, collaborate, and finally call a place home (too cheesy? maybe… but it's true). I'm passionate about clean, thoughtful UI/UX design, subtle but delightful animations, and bringing creativity into every build. My happy place is crafting minimalistic websites with just the right amount of fun and flair.
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="text-lg leading-relaxed"
+                >
+                  Before transitioning into tech, I spent several years in the restaurant industry, where I worked my way into management roles early on. That experience taught me how to lead with empathy, solve problems on the fly, and keep things running smoothly no matter what gets thrown your way. It still shapes how I work today: with intention, curiosity, and a deep appreciation for good teamwork.
+                </motion.p>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  className="text-lg leading-relaxed mb-0"
+                >
+                  When I'm not coding, you can find me out on a trail with my dog Frankie, hanging with my super chill one-eyed cat Ginger, or trying to keep my mischievous kitten Chunx out of trouble. I also love photography, cooking up something fun in the kitchen, and getting lost in a good video game. If you're into building cool stuff and want a developer who brings heart, humor, and high standards to the table — let's chat.
+                </motion.p>
+              </div>
             </div>
           </div>
         </div>

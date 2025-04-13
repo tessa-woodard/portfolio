@@ -1,5 +1,6 @@
 import * as React from "react"
 import { useMood } from "../context/MoodContext"
+import { motion } from "framer-motion"
 
 const Contact = () => {
   const { currentMood } = useMood()
@@ -33,7 +34,11 @@ const Contact = () => {
                   method="POST"
                   className="space-y-4"
                 >
-                  <div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                  >
                     <label htmlFor="name" className="block text-sm font-medium" style={{ color: 'var(--text-color)' }}>
                       Name
                     </label>
@@ -44,8 +49,12 @@ const Contact = () => {
                       className="mt-1 block w-full rounded-md border-2 border-zinc-200 bg-white/90 shadow-sm focus:border-zinc-400 focus:ring-2 focus:ring-zinc-200 sm:text-sm p-2"
                       required
                     />
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                  >
                     <label htmlFor="email" className="block text-sm font-medium" style={{ color: 'var(--text-color)' }}>
                       Email
                     </label>
@@ -56,8 +65,12 @@ const Contact = () => {
                       className="mt-1 block w-full rounded-md border-2 border-zinc-200 bg-white/90 shadow-sm focus:border-zinc-400 focus:ring-2 focus:ring-zinc-200 sm:text-sm p-2"
                       required
                     />
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.3 }}
+                  >
                     <label htmlFor="message" className="block text-sm font-medium" style={{ color: 'var(--text-color)' }}>
                       Message
                     </label>
@@ -68,21 +81,31 @@ const Contact = () => {
                       className="mt-1 block w-full rounded-md border-2 border-zinc-200 bg-white/90 shadow-sm focus:border-zinc-400 focus:ring-2 focus:ring-zinc-200 sm:text-sm p-2"
                       required
                     ></textarea>
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.4 }}
+                  >
                     <button
                       type="submit"
-                      className="w-full rounded-md px-4 py-2 text-sm font-medium transition-colors duration-300"
+                      className={`font-bold w-full text-lg py-2 px-4 border-2 border-black rounded-xl shadow-black shadow-[0px_4px_0px_0px_rgba(0,0,0,0)] transition-colors duration-300 ${currentMood === 'creative' ? 'gradient-bg' : ''}`}
                       style={{ 
-                        backgroundColor: 'var(--text-color)',
-                        color: 'white',
+                        backgroundColor: currentMood === 'creative' ? 'transparent' : 'var(--text-color)',
+                        color: 'black'
                       }}
-                      onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--hover-color)'}
-                      onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--text-color)'}
+                      onMouseOver={(e) => {
+                        if (currentMood !== 'creative') e.currentTarget.style.backgroundColor = 'var(--hover-color)';
+                      }}
+                      onMouseOut={(e) => {
+                        if (currentMood !== 'creative') e.currentTarget.style.backgroundColor = 'var(--text-color)';
+                      }}
                     >
-                      Send Message
+                      <span className="pr-2">
+                        <span className="animate-wiggle inline-block">📤</span> Send Message
+                      </span>
                     </button>
-                  </div>
+                  </motion.div>
                 </form>
               </div>
             </div>

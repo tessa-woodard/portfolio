@@ -8,7 +8,7 @@ const ExperienceCard = ({ experience, index }) => {
         return '/static/dealeron-logo.png';
       case 'Crocs':
         return '/static/crocs-logo.png';
-      case 'Indicio':
+      case 'Indicio.tech':
         return '/static/indicio-logo.png';
       case 'Flylance':
         return '/static/flylance-logo.png';

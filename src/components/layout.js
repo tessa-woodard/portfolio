@@ -5,8 +5,9 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import React from "react"
+import * as React from "react"
 import { Link } from "gatsby"
+import { useLocation } from "@reach/router"
 import "./layout.css"
 import ParallaxGrid from "./ParallaxGrid"
 import MoodButton from "./MoodButton"
@@ -14,17 +15,19 @@ import { useMood } from "../context/MoodContext"
 
 const Layout = ({ children }) => {
   const { currentMood, setCurrentMood } = useMood();
+  const location = useLocation();
+  const isExperiencePage = location.pathname === '/experience';
 
   return (
     <div className="min-h-screen flex flex-col" data-mood={currentMood}>
-      <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/80 backdrop-blur">
+      <header className={`sticky top-0 z-50 w-full border-b border-zinc-200 backdrop-blur ${currentMood === 'tech' ? 'bg-black' : 'bg-white/80'}`}>
         <div className="sm:px-8">
           <div className="mx-auto max-w-7xl lg:px-8">
             <div className="relative px-4 sm:px-8 lg:px-12">
               <div className="mx-auto max-w-2xl lg:max-w-2xl">
                 <div className="flex items-center justify-between py-6">
                   <div>
-                    <Link to="/" className="font-bold text-lg text-zinc-900 hover:text-zinc-600 transition-colors duration-300 no-underline">
+                    <Link to="/" className="font-bold text-lg text-zinc-900 hover:text-zinc-600 transition-colors duration-300 no-underline" style={{ color: currentMood === 'tech' ? 'white' : 'var(--text-color)' }}>
                       @tessawoodard
                     </Link>
                   </div>
@@ -32,14 +35,23 @@ const Layout = ({ children }) => {
                     <Link
                       to="/experience"
                       className="text-lg font-medium hover:text-gray-900 transition-colors duration-300"
-                      style={{ color: 'var(--text-color)' }}
+                      style={{ color: currentMood === 'tech' ? 'white' : 'var(--text-color)' }}
                     >
                       Experience
                     </Link>
                     <Link
+                      to="https://github.com/tessa-woodard"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-lg font-medium hover:text-gray-900 transition-colors duration-300"
+                      style={{ color: currentMood === 'tech' ? 'white' : 'var(--text-color)' }}
+                    >
+                      Projects
+                    </Link>
+                    <Link
                       to="/contact"
                       className="text-lg font-medium hover:text-gray-900 transition-colors duration-300"
-                      style={{ color: 'var(--text-color)' }}
+                      style={{ color: currentMood === 'tech' ? 'white' : 'var(--text-color)' }}
                     >
                       Contact
                     </Link>
@@ -52,19 +64,41 @@ const Layout = ({ children }) => {
       </header>
 
       <main className="flex-1 relative">
-        <div className="bg-grid" />
+        <div className="bg-grid absolute inset-0" style={{ height: 'auto', minHeight: '100%' }} />
+        {currentMood === 'creative' && (
+          <div className="background-emoji-container">
+            <div className="background-emoji">🐶</div>
+            <div className="background-emoji">🍭</div>
+            <div className="background-emoji">🌈</div>
+            <div className="background-emoji">💕</div>
+            <div className="background-emoji">🦄</div>
+            <div className="background-emoji">🧁</div>
+            <div className="background-emoji">💅</div>
+            <div className="background-emoji">🧋</div>
+            <div className="background-emoji">✨</div>
+            <div className="background-emoji">😌</div>
+            <div className="background-emoji">🪴</div>
+            <div className="background-emoji">⭐️</div>
+            <div className="background-emoji">😇</div>
+            <div className="background-emoji">🍓</div>
+            <div className="background-emoji">🍰</div>
+            <div className="background-emoji">🍣</div>
+            <div className="background-emoji">🥰</div>
+            <div className="background-emoji">🍄</div>
+          </div>
+        )}
         <div className="relative z-10 pb-6">
           {children}
         </div>
       </main>
 
-      <footer className="border-t border-zinc-200 py-6 relative z-50 bg-white/80 backdrop-blur">
+      <footer className={`border-t border-zinc-200 py-6 relative z-50 backdrop-blur ${currentMood === 'tech' ? 'bg-black' : 'bg-white/80'}`}>
         <div className="sm:px-8">
           <div className="mx-auto max-w-7xl lg:px-8">
             <div className="relative px-4 sm:px-8 lg:px-12">
               <div className="mx-auto max-w-2xl lg:max-w-2xl">
                 <div className="flex items-center justify-between">
-                  <div className="text-zinc-500">
+                  <div className="text-zinc-500" style={{ color: currentMood === 'tech' ? 'white' : 'var(--text-color)' }}>
                     <span>© {new Date().getFullYear()} Tessa Woodard</span>
                   </div>
                   <div className="flex space-x-4">
@@ -72,7 +106,8 @@ const Layout = ({ children }) => {
                       href="https://github.com/tessa-woodard"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-zinc-500 hover:text-zinc-700 transition-colors duration-300"
+                      className={`transition-colors duration-300 ${currentMood === 'tech' ? 'hover:text-white' : 'text-zinc-500 hover:text-zinc-700'}`}
+                      style={{ color: currentMood === 'tech' ? 'white' : 'var(--text-color)' }}
                     >
                       <span className="sr-only">GitHub</span>
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -87,7 +122,8 @@ const Layout = ({ children }) => {
                       href="https://www.linkedin.com/in/tessa-woodard/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-zinc-500 hover:text-zinc-700 transition-colors duration-300"
+                      className={`transition-colors duration-300 ${currentMood === 'tech' ? 'hover:text-white' : 'text-zinc-500 hover:text-zinc-700'}`}
+                      style={{ color: currentMood === 'tech' ? 'white' : 'var(--text-color)' }}
                     >
                       <span className="sr-only">LinkedIn</span>
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">

@@ -5,15 +5,15 @@ const ExperienceCard = ({ experience, index }) => {
   const getLogoImage = (company) => {
     switch (company) {
       case 'DealerOn':
-        return '/static/dealeron-logo.png';
+        return '/dealeron-logo.png';
       case 'Crocs':
-        return '/static/crocs-logo.png';
+        return '/crocs-logo.png';
       case 'Indicio.tech':
-        return '/static/indicio-logo.png';
+        return '/indicio-logo.png';
       case 'Flylance':
-        return '/static/flylance-logo.png';
+        return '/flylance-logo.png';
       case 'DevMountain':
-        return '/static/devmountain-logo.png';
+        return '/devmountain-logo.png';
       default:
         return null;
     }

@@ -1,5 +1,5 @@
 [build]
-  command = "npm ci && gatsby clean && gatsby build"
+  command = "npm cache clean --force && npm ci && npm rebuild && gatsby clean && gatsby build"
   publish = "public"
 
 [context.production.environment]

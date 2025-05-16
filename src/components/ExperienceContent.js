@@ -23,11 +23,11 @@ const ExperienceContent = () => {
         "Collaboration", "Dealer Compliance Standards"
       ],
       responsibilities: [
-        "Designed and developed responsive web pages using HTML5, CSS3, jQuery, and Bootstrap 3",
-        "Ensured ADA and WCAG compliance for accessibility and brand consistency",
-        "Created functional, visually appealing designs aligned with UX best practices",
-        "Diagnosed and resolved cross-browser and performance issues using Chrome DevTools",
-        "Collaborated via Salesforce, adhering to dealership standards and delivering modern design solutions"
+        "Designed and developed responsive web pages using hand-coded HTML5, CSS3, jQuery, and Bootstrap 3",
+        "Ensured ADA and WCAG 2.1 compliance for accessibility and consistent branding",
+        "Optimized site performance and SEO with Google GA4 tagging and metadata best practices",
+        "Translated mockups and copy into pixel perfect layouts within a proprietary CMS",
+        "Collaborated via Salesforce Service Cloud, adhering to dealership standards and delivering modern design solutions"
       ],
       logo: true
     },
@@ -46,11 +46,11 @@ const ExperienceContent = () => {
         "Microsoft Visual Studio Code"
       ],
       responsibilities: [
-        "Developed e-commerce solutions using SFCC/Demandware API, Sandboxer, and React for storefront code",
-        "Streamlined workflows with Bitbucket, Figma, and responsive design tools for wireframing",
-        "Enhanced user experiences by optimizing performance and addressing design constraints",
-        "Developed cross-browser websites in an Agile environment, completing tasks within sprints",
-        "Ensured ADA compliance with accessibility tools and managed CMS platforms like Okra, Contentstack, and Storybook"
+        "Supported React development and modularized storefront code using Okra and Storybook",
+        "Maintained and tested storefront features across legacy codebases with version control via Bitbucket and issue tracking in Jira",
+        "Collaborated with cross-functional teams including QA, DevOps, accessibility, and email to ensure consistent, accessible component behavior across the platform",
+        "Ensured ADA/WCAG compliance and improved UX through modular design and performance optimization",
+        "Participated in Agile sprints and code reviews to support scalable front-end development workflows"
       ],
       logo: true
     },
@@ -68,11 +68,11 @@ const ExperienceContent = () => {
         "Front-End Development", "Chrome DevTools", "Content Hub", "Microsoft Visual Studio Code"
       ],
       responsibilities: [
-        "Partnered with UX and Design teams to craft responsive, cross-browser templates for GTM campaigns",
-        "Managed e-commerce storefront assets in Salesforce Business Manager, integrating third-party tools",
-        "Developed and optimized HTML/CSS to ensure ADA compliance and maintain brand consistency",
-        "Diagnosed and resolved global codebase issues, improving platform stability and user experience",
-        "Provided accurate effort estimates and project scope guidance for timely B2B and B2C delivery"
+        "Partnered with UX, Design, and Marketing teams to craft responsive, cross-browser templates for GTM campaigns",
+        "Managed e-commerce storefront assets using Salesforce Commerce Cloud / Business Manager, integrating third-party tools",
+        "Developed and optimized HTML/CSS templates ensuring WCAG and ADA compliance and brand consistency",
+        "Refined Adobe XD and Figma files for accurate HTML/CSS implementation and collaborated with project managers and design teams to scope projects and provide effort estimates for timely B2B and B2C delivery",
+        "Diagnosed and resolved codebase issues to improve platform stability and user experience"
       ],
       logo: true
     },
